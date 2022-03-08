@@ -8,11 +8,11 @@ module.exports = {
   // 其他设置
   overrides: [
     {
-      files: "*.json",
+      files: '*.json',
       options: {
         printWidth: 200,
       },
     },
   ],
-  arrowParens: "always",
-};
+  arrowParens: 'always',
+}

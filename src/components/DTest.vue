@@ -2,7 +2,7 @@
   <div class="d-test">
     <div class="count_box">{{ mainStore.count }}</div>
 
-    <div>{{ mainStore.countMul }}</div>
+    <div class="mul_count">{{ mainStore.countMul }}</div>
 
     <button @click="change">改变main数据</button>
 
@@ -37,15 +37,40 @@ const getRgbVal = () => {
 }
 
 const getColor = () => {
-  const val = `#${Array(6).fill('').map(getRgbVal).join('')}`
-  console.log(val)
-  return val
+  const val = Array(6).fill('').map(getRgbVal).join('')
+  return '#' + val
+}
+
+const isLight = (color: string) => {
+  let i = 1
+  const res: number[] = []
+  while (i < color.length) {
+    res.push(eval(`0x${color.substring(i, (i += 2))}`))
+  }
+  console.log(res)
+  const grayLevel = res[0] + 0.299 + res[1] * 0.587 + res[2] * 0.114
+  return grayLevel >= 192
+}
+
+const getStyleValue = (eleName: string, styleKey: string) => {
+  return getComputedStyle(document.querySelector<HTMLElement>(eleName)!, null).getPropertyValue(
+    styleKey
+  )
 }
 
 const bodyColorChange = () => {
   const body = document.querySelector<HTMLElement>('body')!
   // Reflect.set(, '--body-color', getColor())
-  body.style.cssText = `--body-color:  ${getColor()}`
+  const color = getColor()
+  console.log({ color, dark: isLight(color) })
+  body.style.cssText = `--bg-color: ${color}; --font-color: ${isLight(color) ? '#000' : '#fff'}`
+  console.log({ style: getComputedStyle(body, null).getPropertyValue('--body-color') })
+  setTimeout(() => {
+    console.log({
+      box: getStyleValue('.count_box', 'color'),
+      mul: getStyleValue('.mul_count', 'color'),
+    })
+  }, 300)
 }
 
 const asyncChange = () => {
@@ -54,7 +79,14 @@ const asyncChange = () => {
 </script>
 
 <style lang="scss" scoped>
-.count_box {
-  background-color: $test-color;
+.d-test {
+  background-color: $bg-color;
+  color: $font-color;
+  .mul_count {
+    color: $font-color-level-1;
+  }
+  .count_box {
+    color: $font-color-level-2;
+  }
 }
 </style>

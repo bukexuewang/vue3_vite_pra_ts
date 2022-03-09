@@ -1,9 +1,13 @@
-$test-color: var(--body-color);
-
 $primary: skyblue;
 
-$font-color: #000;
+$font-color: var(--font-color, #fff);
 
-$bg-color: #fff;
+$bg-color: var(--bg-color);
 
 // $primary-light-1: mix()
+
+$font-color-level-1: rgba(#fff, 0.85);
+
+$font-color-level-2: rgba(#fff, 0.60);
+
+$font-color-level-3: rgba(#fff, 0.45);

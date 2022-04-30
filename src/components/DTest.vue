@@ -36,7 +36,7 @@ const getRgbVal = () => {
   return randomArr[i]
 }
 
-const getColor = () => {
+const getRandomColor = () => {
   const val = Array(6).fill('').map(getRgbVal).join('')
   return '#' + val
 }
@@ -60,8 +60,8 @@ const getStyleValue = (eleName: string, styleKey: string) => {
 
 const bodyColorChange = () => {
   const body = document.querySelector<HTMLElement>('body')!
-  // Reflect.set(, '--body-color', getColor())
-  const color = getColor()
+  // Reflect.set(, '--body-color', getRandomColor())
+  const color = getRandomColor()
   console.log({ color, dark: isLight(color) })
   body.style.cssText = `--bg-color: ${color}; --font-color: ${isLight(color) ? '#000' : '#fff'}`
   console.log({ style: getComputedStyle(body, null).getPropertyValue('--body-color') })
@@ -83,10 +83,10 @@ const asyncChange = () => {
   background-color: $bg-color;
   color: $font-color;
   .mul_count {
-    color: $font-color-level-1;
+    @include font-color-level-1;
   }
   .count_box {
-    color: $font-color-level-2;
+    @include font-color-level-2;
   }
 }
 </style>

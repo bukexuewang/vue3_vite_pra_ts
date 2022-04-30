@@ -6,8 +6,16 @@ $bg-color: var(--bg-color);
 
 // $primary-light-1: mix()
 
-$font-color-level-1: rgba(#fff, 0.85);
+// $font-color-level-1: rgba(#fff, 0.85);
 
-$font-color-level-2: rgba(#fff, 0.6);
+// $font-color-level-2: rgba(#fff, 0.6);
 
-$font-color-level-3: rgba(#fff, 0.45);
+// $font-color-level-3: rgba(#fff, 0.45);
+
+@mixin font-color-level-1 {
+  color: rgba($font-color, 0.85);
+}
+
+@mixin font-color-level-2 {
+  color: rgba($font-color, 0.6);
+}

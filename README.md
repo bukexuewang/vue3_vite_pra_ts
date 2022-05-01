@@ -27,6 +27,9 @@ pnpm add -g pnpm
 package.json 可以添加的内容
 ```json
 {
+  "script": {
+    "prepare": "husky install"
+  },
    "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

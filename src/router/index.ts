@@ -1,16 +1,13 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { defaultRoutes } from './defaultRoutes';
 
-const routes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    name: 'Login',
-    component: () => import('@/pages/login/Login.vue'), // 注意这里要带上 文件后缀.vue
-  },
-]
+export * from './constant';
+
+const routes: RouteRecordRaw[] = defaultRoutes;
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
-})
+  routes
+});
 
-export default router
+export default router;

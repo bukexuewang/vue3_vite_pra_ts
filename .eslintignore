@@ -1,3 +1,16 @@
-# eslint 忽略检查 (根据项目需要自行添加)
+*.sh
 node_modules
-dist
+lib
+*.md
+*.woff
+*.ttf
+.vscode
+.idea
+/dist/
+/public
+/docs
+.vscode
+.local
+package.json
+!.env-config.ts
+components.d.ts

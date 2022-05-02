@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { computed, ref, unref } from 'vue'
+import { computed, ref, unref } from 'vue';
 
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 
-const count = ref(0)
+const count = ref(0);
 
 const fn = () => {
-  const abc = 111
+  const abc = 111;
 
-  console.log('111')
-}
+  console.log('111');
+};
 
-const sum = computed(() => unref(count) * 10 ** unref(count))
+const sum = computed(() => unref(count) * 10 ** unref(count));
 </script>
 
 <template>

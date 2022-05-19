@@ -7,7 +7,7 @@ const routes: RouteRecordRaw[] = defaultRoutes;
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 export default router;

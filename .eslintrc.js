@@ -56,11 +56,6 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: 'naive-ui',
-            group: 'external',
-            position: 'before',
-          },
-          {
             pattern: '@/config',
             group: 'internal',
             position: 'before',
@@ -141,7 +136,7 @@ module.exports = {
             position: 'before',
           },
         ],
-        pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'vuex', 'pinia', 'naive-ui'],
+        pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'vuex', 'pinia'],
       },
     ],
     'import/no-unresolved': 'off',

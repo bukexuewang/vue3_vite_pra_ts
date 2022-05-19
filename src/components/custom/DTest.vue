@@ -7,22 +7,17 @@
     <button @click="change">改变main数据</button>
 
     <button @click="asyncChange">请求</button>
-
-    <n-button type="primary">测试ui按钮</n-button>
-
-    <n-gradient-text type="success" @click="bodyColorChange"> 成了 </n-gradient-text>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useMainStore } from '@/store';
-import { NButton, NGradientText } from 'naive-ui';
 
 const mainStore = useMainStore();
 
 const change = () => {
   mainStore.$patch({
-    count: 12
+    count: 12,
   });
 };
 
@@ -38,13 +33,14 @@ const getRgbVal = () => {
 
 const getRandomColor = () => {
   const val = Array(6).fill('').map(getRgbVal).join('');
-  return '#' + val;
+  return `#${val}`;
 };
 
 const isLight = (color: string) => {
   let i = 1;
   const res: number[] = [];
   while (i < color.length) {
+    // eslint-disable-next-line no-eval
     res.push(eval(`0x${color.substring(i, (i += 2))}`));
   }
   console.log(res);
@@ -66,7 +62,7 @@ const bodyColorChange = () => {
   setTimeout(() => {
     console.log({
       box: getStyleValue('.count_box', 'color'),
-      mul: getStyleValue('.mul_count', 'color')
+      mul: getStyleValue('.mul_count', 'color'),
     });
   }, 300);
 };

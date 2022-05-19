@@ -14,7 +14,7 @@ module.exports = {
   semi: true, // 段落后缀冒号
   singleQuote: true, // 单引号
   tabWidth: 2,
-  trailingComma: 'none',
+  trailingComma: 'es5',
   useTabs: false,
   vueIndentScriptAndStyle: false,
   // 其他设置
@@ -22,14 +22,14 @@ module.exports = {
     {
       files: '*.html',
       options: {
-        parser: 'html',
-      },
+        parser: 'html'
+      }
     },
     {
       files: '*.json',
       options: {
-        printWidth: 200,
-      },
-    },
-  ],
+        printWidth: 200
+      }
+    }
+  ]
 }

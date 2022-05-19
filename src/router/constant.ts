@@ -1,4 +1,4 @@
-export const LOGIN = {path: '/login', name: 'login'}
+export const LOGIN = { path: '/login', name: 'login' };
 
 export const HOME = { path: '/', name: 'home' };
 

@@ -2,6 +2,13 @@
   "name": "vue3_pra_ts",
   "private": true,
   "version": "0.0.0",
+  "description": "基础的 vue3 + vue-router + pinia + naive-ui模板",
+  "keywords": [
+    "vue3",
+    "vue",
+    "pinia",
+    "naive-ui"
+  ],
   "scripts": {
     "dev": "cross-env VITE_ENV_TYPE=dev vite",
     "dev:test": "cross-env VITE_ENV_TYPE=test vite",

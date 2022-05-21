@@ -56,7 +56,7 @@ module.exports = {
             position: 'before',
           },
           {
-            pattern: 'element-plus',
+            pattern: 'naive-ui',
             group: 'external',
             position: 'before',
           },

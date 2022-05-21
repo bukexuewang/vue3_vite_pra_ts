@@ -3,7 +3,7 @@ import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import AutoImport from 'unplugin-auto-import/vite';
 // import Inspect from 'vite-plugin-inspect';
 
@@ -28,16 +28,15 @@ export default (srcPath: string) => [
       IconsResolver({
         prefix: 'icon', // 默认值为 i
         customCollections: ['custom'],
-        enabledCollections: ['ep'], // ep为element-plus的缩写
       }),
       // Auto register Element Plus components
       // 自动导入 Element Plus 组件
-      ElementPlusResolver(),
+      NaiveUiResolver(),
     ],
   }),
   AutoImport({
     dts: 'src/typings/auto-import.d.ts',
-    resolvers: [ElementPlusResolver()],
+    resolvers: [NaiveUiResolver()],
     include: [/\.vue$/, /\.tsx?/],
     imports: ['vue', 'vue-router'],
     eslintrc: {

@@ -28,7 +28,7 @@
       "vite/client",
       "node",
       "unplugin-icons/types/vue",
-      "element-plus/global"
+      "naive-ui/volar"
     ]
   },
   "include": [

@@ -56,6 +56,11 @@ module.exports = {
             position: 'before',
           },
           {
+            pattern: 'element-plus',
+            group: 'external',
+            position: 'before',
+          },
+          {
             pattern: '@/config',
             group: 'internal',
             position: 'before',

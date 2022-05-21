@@ -27,11 +27,16 @@
     "types": [
       "vite/client",
       "node",
-      // "unplugin-icons/types/vue",
-      // "naive-ui/volar"
+      "unplugin-icons/types/vue",
+      "element-plus/global"
     ]
   },
-  "include": [".env-config.ts", "src", "build", "vite.config.ts"],
+  "include": [
+    ".env-config.ts",
+    "src",
+    "build",
+    "vite.config.ts"
+  ],
   "exclude": [
     "dist",
     "node_modules"

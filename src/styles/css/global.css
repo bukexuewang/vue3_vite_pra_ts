@@ -2,6 +2,12 @@
 @import './reset.css';
 @import './scrollbar.css';
 
-html, body, #app {
-	height: 100%;
+html,
+body,
+#app {
+  height: 100%;
+}
+
+.dp_ib {
+  display: inline-block;
 }

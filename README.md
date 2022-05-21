@@ -21,8 +21,7 @@ pnpm add -g pnpm
 > 路由跳转 [vue-router@4](https://router.vuejs.org/zh/)
 > 状态管理器 [pinia](https://pinia.vuejs.org/)
 
-此项目可以用作日常开发的模板
-``注意``此模板没有添加ui框架，需要`ui`框架的请查看分支`dev-element-plus`或`dev-naive-ui`
+此项目可以用作日常开发的模板, `ui`框架是`element-plus`
 
 package.json 可以添加的内容
 ```json

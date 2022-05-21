@@ -7,8 +7,8 @@ export default (viteEnv: ImportMetaEnv): PluginOption => {
     inject: {
       data: {
         appName: viteEnv.VITE_APP_NAME,
-        appTitle: viteEnv.VITE_APP_TITLE
-      }
-    }
+        appTitle: viteEnv.VITE_APP_TITLE,
+      },
+    },
   });
 };

@@ -8,6 +8,6 @@ export default (viteEnv: ImportMetaEnv) => {
     disable: false,
     threshold: 10240,
     algorithm: VITE_COMPRESS_TYPE,
-    ext: '.gz'
+    ext: '.gz',
   });
 };

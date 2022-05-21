@@ -2,7 +2,7 @@
 import { LOGIN } from '@/router';
 
 export default defineComponent({
-  name: LOGIN.name
+  name: LOGIN.name,
 });
 </script>
 <script setup lang="ts"></script>

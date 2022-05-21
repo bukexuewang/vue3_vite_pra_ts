@@ -5,16 +5,16 @@ type ServiceEnv = Record<EnvType, EnvConfig>;
 const serviceEnvConfig: ServiceEnv = {
   dev: {
     url: 'http://localhost:8080',
-    proxy: '/api'
+    proxy: '/api',
   },
   test: {
     url: 'http://localhost:8080',
-    proxy: '/api'
+    proxy: '/api',
   },
   prod: {
     url: 'http://localhost:8080',
-    proxy: '/api'
-  }
+    proxy: '/api',
+  },
 };
 
 /**

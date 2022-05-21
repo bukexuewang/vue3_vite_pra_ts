@@ -17,32 +17,32 @@ export default defineConfig(configEnv => {
     base: viteEnv.VITE_BASE_URL,
     resolve: {
       alias: {
-        '@': srcPath
-      }
+        '@': srcPath,
+      },
     },
     define: viteDefine,
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "/src/styles/scss/variable.scss" as *;`
-        }
-      }
+          additionalData: `@use "/src/styles/scss/variable.scss" as *;`,
+        },
+      },
     },
     server: {
       port: 8083,
       host: 'localhost',
       open: true,
-      proxy: createViteProxy(isOpenProxy, envConfig)
+      proxy: createViteProxy(isOpenProxy, envConfig),
     },
     build: {
       terserOptions: {
         compress: {
           drop_console: true,
-          drop_debugger: true
-        }
+          drop_debugger: true,
+        },
       },
-      brotliSize: false
+      brotliSize: false,
     },
-    plugins: VitePlugins(viteEnv, srcPath)
+    plugins: VitePlugins(viteEnv, srcPath),
   };
 });

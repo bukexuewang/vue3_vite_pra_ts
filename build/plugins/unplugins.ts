@@ -10,15 +10,15 @@ export default (srcPath: string) => [
   Icons({
     compiler: 'vue3',
     customCollections: {
-      custom: FileSystemIconLoader(`${srcPath}/assets/svg`)
+      custom: FileSystemIconLoader(`${srcPath}/assets/svg`),
     },
     scale: 1,
-    defaultClass: 'inline-block'
+    defaultClass: 'inline-block',
   }),
   Components({
     dts: 'src/typings/component.d.ts',
     types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
-    resolvers: [IconsResolver({ customCollections: ['custom'], componentPrefix: 'icon' })]
+    resolvers: [IconsResolver({ customCollections: ['custom'], componentPrefix: 'icon' })],
   }),
   AutoImport({
     dts: 'src/typings/auto-import.d.ts',
@@ -27,7 +27,7 @@ export default (srcPath: string) => [
     eslintrc: {
       enabled: false, // Default `false`
       filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-      globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-    }
-  })
+      globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+    },
+  }),
 ];

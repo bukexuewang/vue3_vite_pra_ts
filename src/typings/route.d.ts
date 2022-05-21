@@ -1,4 +1,4 @@
-/**权限路由相关类型 */
+/** 权限路由相关类型 */
 declare namespace AuthRoute {
   interface RouteMeta {
     title: string; // 页面标题

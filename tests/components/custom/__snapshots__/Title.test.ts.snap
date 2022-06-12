@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name of the group displays message 1`] = `"<div class=\\"title\\" style=\\"font-size: 0.5em; color: green;\\">Hello world</div>"`;
+
+exports[`测试vue组件 展示title组件，大属性的情况 1`] = `"<div class=\\"title\\" style=\\"font-size: 2em; color: red;\\">Hello world</div>"`;
+
+exports[`测试vue组件 展示title组件，小属性的情况 1`] = `"<div class=\\"title\\" style=\\"font-size: 0.5em; color: green;\\">Hello world</div>"`;

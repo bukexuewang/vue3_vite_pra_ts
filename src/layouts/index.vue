@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import TitleVue from '@/components/custom/Title.vue';
+
 // const {meta} = useRoute();
 </script>
 
 <template>
   <section class="layout">
-    <header class="layout_header">这里是顶部</header>
+    <header class="layout_header"><TitleVue type="large" title="这里是顶部"></TitleVue></header>
     <nav class="layout_nav">左边导航栏</nav>
     <main class="layout_main">
       <!-- <Keep-alive>

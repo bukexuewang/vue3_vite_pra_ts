@@ -18,24 +18,22 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ],
-      "~/*": [
-        "./*"
-      ]
     },
     "types": [
       "vite/client",
       "node",
-      // "unplugin-icons/types/vue",
-      // "naive-ui/volar"
+      "jest",
+      "@types/testing-library__jest-dom"
     ]
   },
   "include": [
     ".env-config.ts",
     "src",
     "build",
-    "vite.config.ts"
+    "vite.config.ts",
+    "tests"
   ],
   "exclude": [
     "dist",

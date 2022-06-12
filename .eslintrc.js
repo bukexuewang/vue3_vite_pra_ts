@@ -153,12 +153,13 @@ module.exports = {
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
-    'vue/multi-word-component-names': [
-      'error',
-      {
-        ignores: ['index'],
-      },
-    ],
+    // 'vue/multi-word-component-names': [
+    //   'error',
+    //   {
+    //     ignores: ['index'],
+    //   },
+    // ],
+    'vue/multi-word-component-names': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-empty-interface': [
       'error',

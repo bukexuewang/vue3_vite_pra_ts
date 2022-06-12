@@ -7,20 +7,20 @@ const emit = defineEmits<{
   (event: 'show'): void;
 }>();
 
-const obCallBack: IntersectionObserverCallback = entries => {
-  const ele = entries[0];
-  if (ele) {
-    const { isIntersecting } = ele;
-    if (isIntersecting) {
-      emit('show');
-    }
-  }
-};
+// const obCallBack: IntersectionObserverCallback = entries => {
+//   const ele = entries[0];
+//   if (ele) {
+//     const { isIntersecting } = ele;
+//     if (isIntersecting) {
+//       emit('show');
+//     }
+//   }
+// };
 
-const ob = new IntersectionObserver(obCallBack);
+// const ob = new IntersectionObserver(obCallBack);
 
 onMounted(() => {
-  ob.observe(unref(el)!);
+  // ob.observe(unref(el)!);
 });
 </script>
 

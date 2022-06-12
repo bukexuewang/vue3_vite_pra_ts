@@ -31,7 +31,12 @@
       // "naive-ui/volar"
     ]
   },
-  "include": [".env-config.ts", "src", "build", "vite.config.ts"],
+  "include": [
+    ".env-config.ts",
+    "src",
+    "build",
+    "vite.config.ts"
+  ],
   "exclude": [
     "dist",
     "node_modules"

@@ -1,5 +1,4 @@
 import viteCompression from 'vite-plugin-compression';
-import type { ImportMetaEnv } from '../type';
 
 // gzip压缩 生产环境生成 .gz 文件
 export default (viteEnv: ImportMetaEnv) => {
@@ -9,6 +8,6 @@ export default (viteEnv: ImportMetaEnv) => {
     disable: false,
     threshold: 10240,
     algorithm: VITE_COMPRESS_TYPE,
-    ext: '.gz'
+    ext: '.gz',
   });
 };

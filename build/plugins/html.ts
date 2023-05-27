@@ -1,6 +1,5 @@
 import type { PluginOption } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
-import { ImportMetaEnv } from '../type';
 
 export default (viteEnv: ImportMetaEnv): PluginOption => {
   return createHtmlPlugin({
@@ -8,8 +7,8 @@ export default (viteEnv: ImportMetaEnv): PluginOption => {
     inject: {
       data: {
         appName: viteEnv.VITE_APP_NAME,
-        appTitle: viteEnv.VITE_APP_TITLE
-      }
-    }
+        appTitle: viteEnv.VITE_APP_TITLE,
+      },
+    },
   });
 };

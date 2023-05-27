@@ -1,0 +1,11 @@
+auto-imports.d.ts
+components.d.ts
+unocss-icon.ts
+nuxt.d.ts
+dist
+.nuxt
+.output
+emailTemplate.html
+public
+
+assets/js/

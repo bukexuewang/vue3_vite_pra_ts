@@ -74,7 +74,11 @@ onUnmounted(() => {
         <input type="text" placeholder="正在搜索..." class="input" @click="idsPush" />
       </div>
     </div>
-    <!-- <iframe ref="refChatIframe" src="http://localhost:8080/fbChat/loading" frameborder="0" class="r-iframe"></iframe> -->
+    <iframe
+      ref="refChatIframe"
+      src="http://localhost:8080/fbChat/loading?lang=cn"
+      frameborder="0"
+      class="r-iframe"></iframe>
   </div>
 </template>
 

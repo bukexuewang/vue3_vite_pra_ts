@@ -1,12 +1,14 @@
 import { ref, unref } from 'vue';
 
-const OPERATION_TYPE = {
+export const OPERATION_TYPE = {
   FB_CLOSE: 1, // 右下角聊天应用关闭隐藏
   MAIN_OPEN: 2, // 打开显示主应用
   DIALOG_OPEN: 3, // 打开弹窗
   OPEN_LOGIN: 4, // 打开登录页
   OPEN_USER_INFO: 5, // 打开个人中心
   MESSAGE_COUNT: 6, // 消息数量同步
+  DIALOG_CLOSE: 7, // 关闭弹窗
+  DIALOG_URL_CHANGE: 8, // 弹窗url改变
   NIU_ADD_ACCOUNT: 11, // 牛人榜添加账号
   LAYOUT_TYPE: 100, // fb的布局方式
   DIALOG_SOCKET: 101, // 弹窗信息通信
@@ -24,23 +26,23 @@ const OPERATION_TYPE = {
   BACK_END_SEND_MSG_COUNT: 401 // 后台已发送消息数量
 };
 
-let dialogWin = null;
 let mainWin = null;
 
 export const useOnMessage = () => {
   const elFrame = ref();
   const refChatIframe = ref();
+
+  const { openDialog, closeDialog } = useOpenDialog();
+
   const onMessage = (event) => {
     // console.log(event);
     if (!event.data) return;
     const { type, data } = event.data;
     if (type === OPERATION_TYPE.DIALOG_OPEN) {
       const { url, width, height } = event.data.data;
-      if (dialogWin === null || dialogWin.closed) {
-        dialogWin = window.open(url, '_blank', `height=${height},width=${width}`);
-      } else {
-        dialogWin.focus();
-      }
+      openDialog(url, width, height);
+    } else if (type === OPERATION_TYPE.DIALOG_CLOSE) {
+      closeDialog();
     } else if (type === OPERATION_TYPE.MAIN_OPEN) {
       const { url, width, height } = event.data.data;
       if (mainWin === null || mainWin.closed) {

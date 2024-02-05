@@ -1,0 +1,25 @@
+@import './style.css';
+.dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  iframe {
+    border: none;
+    border-radius: 12px;
+  }
+
+  .dialog-close_btn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: black;
+    background-color: #fff;
+  }
+}

@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 function getObjectFitSize({ type = 'cover', containerWidth, containerHeight, imgWidth, imgHeight }) {
   let radio = 1, // 容器与图片的比例
     sx = 0, // 开始剪切的 x 坐标位置。
@@ -176,3 +178,14 @@ export const composeImages = async (urls = [], wh = 200, spacing = 2) => {
   //   });
   return drawer.toDataURL('image/png');
 };
+
+export function setCookie(name, value, opt = { expires: 3650 }) {
+  let host = location.hostname;
+  let hostList = host.split('.');
+  let lenght = hostList.length;
+  if (length > 2) {
+    let list = [hostList[lenght - 2], hostList[lenght - 1]];
+    opt.domain = '.' + list.join('.');
+  } else opt.domain = host;
+  Cookies.set(name, value, opt);
+}

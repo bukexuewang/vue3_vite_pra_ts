@@ -6,6 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const OPERATION_TYPE: typeof import('./hooks/useOnMessage')['OPERATION_TYPE']
   const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
@@ -58,6 +59,7 @@ declare global {
   const useI18n: typeof import('vue-i18n')['useI18n']
   const useLink: typeof import('vue-router')['useLink']
   const useOnMessage: typeof import('./hooks/useOnMessage')['useOnMessage']
+  const useOpenDialog: typeof import('./hooks/useOpenDialog')['useOpenDialog']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']

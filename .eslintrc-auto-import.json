@@ -72,6 +72,8 @@
     "watchPostEffect": true,
     "watchSyncEffect": true,
     "useOpenDialog": true,
-    "OPERATION_TYPE": true
+    "OPERATION_TYPE": true,
+    "WIN_FX_MAIN": true,
+    "useChatLayout": true
   }
 }

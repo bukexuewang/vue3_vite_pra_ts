@@ -14,7 +14,12 @@ import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
 export default defineConfig({
   server: {
     host: '0.0.0.0',
-    port: 5001
+    port: 5001,
+    headers: {
+      'cross-origin-embedder-policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Resource-Policy': 'cross-origin'
+    }
   },
   resolve: {
     alias: {

@@ -7,6 +7,7 @@ export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const OPERATION_TYPE: typeof import('./hooks/useOnMessage')['OPERATION_TYPE']
+  const WIN_FX_MAIN: typeof import('./hooks/useOnMessage')['WIN_FX_MAIN']
   const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
@@ -54,6 +55,7 @@ declare global {
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useChatLayout: typeof import('./hooks/useChatLayout')['useChatLayout']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useI18n: typeof import('vue-i18n')['useI18n']

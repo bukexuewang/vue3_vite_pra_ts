@@ -1,4 +1,5 @@
 import { ref, unref } from 'vue';
+import { CHAT_HREF } from '@/constant';
 
 export const OPERATION_TYPE = {
   FB_CLOSE: 1, // 右下角聊天应用关闭隐藏
@@ -9,6 +10,7 @@ export const OPERATION_TYPE = {
   MESSAGE_COUNT: 6, // 消息数量同步
   DIALOG_CLOSE: 7, // 关闭弹窗
   DIALOG_URL_CHANGE: 8, // 弹窗url改变
+  ADD_CUSTOMER: 9, // 添加客服
   NIU_ADD_ACCOUNT: 11, // 牛人榜添加账号
   LAYOUT_TYPE: 100, // fb的布局方式
   DIALOG_SOCKET: 101, // 弹窗信息通信
@@ -28,9 +30,38 @@ export const OPERATION_TYPE = {
 
 let mainWin = null;
 
-export const useOnMessage = () => {
+export const WIN_FX_MAIN = '_fx_main_app';
+
+export const useOnMessage = (getCurLang = () => 'cn') => {
   const elFrame = ref();
   const refChatIframe = ref();
+
+  /**
+   * @description 主应用窗口
+   */
+  const getWinFxChat = (lang) => {
+    return new Promise((resolve, reject) => {
+      let windowObj = window[WIN_FX_MAIN];
+      if (!windowObj || windowObj.closed) {
+        const langText = lang === 'en' ? '' : `/${lang}`;
+        const nextUrl = encodeURIComponent('/main');
+        const url = CHAT_HREF + `${langText}/fbchat/loading?next=${nextUrl}`;
+        windowObj = window.open(url, '_blank', `width=${960},height=${640}}`);
+        window[WIN_FX_MAIN] = windowObj;
+        const fn = (e) => {
+          if (e.origin !== CHAT_HREF) return;
+          if (e.data.type !== OPERATION_TYPE.ACCEPT_MAIN_SOCKET) return;
+          window.removeEventListener('message', fn);
+          resolve(windowObj);
+        };
+        window.addEventListener('message', fn);
+        return;
+      } else {
+        windowObj.focus();
+      }
+      resolve(windowObj);
+    });
+  };
 
   const { openDialog, closeDialog } = useOpenDialog();
 
@@ -40,7 +71,7 @@ export const useOnMessage = () => {
     const { type, data } = event.data;
     if (type === OPERATION_TYPE.DIALOG_OPEN) {
       const { url, width, height } = event.data.data;
-      openDialog(url, width, height);
+      openDialog(url, width, height, getCurLang());
     } else if (type === OPERATION_TYPE.DIALOG_CLOSE) {
       closeDialog();
     } else if (type === OPERATION_TYPE.MAIN_OPEN) {
@@ -55,5 +86,5 @@ export const useOnMessage = () => {
       unref(refChatIframe).contentWindow.postMessage(event.data, '*');
     }
   };
-  return { onMessage, elFrame, refChatIframe };
+  return { onMessage, elFrame, refChatIframe, getWinFxChat, OPERATION_TYPE };
 };

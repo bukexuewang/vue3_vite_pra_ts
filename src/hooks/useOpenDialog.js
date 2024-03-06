@@ -1,8 +1,8 @@
 export const useOpenDialog = () => {
   let dialogDiv = null;
   let iframeEl = null;
-  const openDialog = (src, width, height) => {
-    createIframeEl(src);
+  const openDialog = (src, width, height, lang) => {
+    createIframeEl(src, lang);
     iframeEl.style.width = `${width}px`;
     iframeEl.style.height = `${height}px`;
     if (dialogDiv) {
@@ -41,12 +41,12 @@ export const useOpenDialog = () => {
     return dialogDiv;
   };
 
-  const createIframeEl = (src) => {
+  const createIframeEl = (src, lang = 'cn') => {
     if (iframeEl) {
       iframeEl.contentWindow.postMessage({ type: OPERATION_TYPE.DIALOG_URL_CHANGE, data: src }, '*');
     } else {
       iframeEl = document.createElement('iframe');
-      iframeEl.src = `http://localhost:8080/fbchat/loading?next=${encodeURIComponent(src)}`;
+      iframeEl.src = `http://localhost:8080/${lang}/fbchat/loading?next=${encodeURIComponent(src)}`;
     }
     return iframeEl;
   };
